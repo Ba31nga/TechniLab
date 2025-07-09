@@ -1,59 +1,62 @@
+// File: src/app/page.tsx
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 font-sans px-6 py-12">
-      {/* Hero Section */}
-      <section className="max-w-6xl mx-auto text-center">
-        <h1 className="text-5xl font-bold sm:text-6xl mb-6">
-          Build Better Products with Technilab
+    <main className="min-h-screen bg-black text-white px-6 py-20 font-sans">
+      {/* hero section */}
+      <section className="max-w-5xl mx-auto text-center">
+        <h1 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6">
+          Welcome to Technilab
         </h1>
-        <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 mb-8 max-w-2xl mx-auto">
-          A modern development experience powered by Next.js and Tailwind CSS.
-          Scalable, fast, and production-ready.
+        <p className="text-lg sm:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto">
+          A unified platform for managing school operations, powered by Next.js
+          and Tailwind CSS.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#"
-            className="px-6 py-3 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            className="px-6 py-3 rounded-xl bg-white text-black font-semibold hover:bg-neutral-200 transition"
           >
             Get Started
           </a>
           <a
             href="#"
-            className="px-6 py-3 rounded border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+            className="px-6 py-3 rounded-xl border border-white text-white hover:bg-white hover:text-black transition"
           >
             Learn More
           </a>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="mt-24 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10">
-        <div className="bg-zinc-50 dark:bg-zinc-800 p-6 rounded-lg shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Modern Stack</h3>
-          <p className="text-zinc-600 dark:text-zinc-300">
-            Built with Next.js App Router, TypeScript, and Tailwind CSS 3. Fully
-            typed and blazing fast.
+      {/* features section */}
+      <section className="mt-28 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10">
+        <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl shadow-md">
+          <h3 className="text-lg font-semibold mb-2">Modular Layout</h3>
+          <p className="text-neutral-400 text-sm">
+            Role-based interface with flexible modules: permissions, schedules,
+            requests, AI.
           </p>
         </div>
-        <div className="bg-zinc-50 dark:bg-zinc-800 p-6 rounded-lg shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Scalable UI</h3>
-          <p className="text-zinc-600 dark:text-zinc-300">
-            Responsive, mobile-first components that adapt seamlessly to all
-            screen sizes.
+        <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl shadow-md">
+          <h3 className="text-lg font-semibold mb-2">Dark Mode Native</h3>
+          <p className="text-neutral-400 text-sm">
+            Built from the ground up for a dark environment — clean, elegant,
+            focused.
           </p>
         </div>
-        <div className="bg-zinc-50 dark:bg-zinc-800 p-6 rounded-lg shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Developer Experience</h3>
-          <p className="text-zinc-600 dark:text-zinc-300">
-            Enjoy autocompletion, custom fonts, dark mode, and fast refresh—all
-            preconfigured.
+        <div className="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl shadow-md">
+          <h3 className="text-lg font-semibold mb-2">Realtime Ready</h3>
+          <p className="text-neutral-400 text-sm">
+            Firebase-backed updates with Firestore and authentication out of the
+            box.
           </p>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-32 text-center text-sm text-zinc-500 dark:text-zinc-400">
-        &copy; {new Date().getFullYear()} Technilab. All rights reserved.
+      {/* footer */}
+      <footer className="mt-28 text-center text-sm text-neutral-500">
+        &copy; {new Date().getFullYear()} Technilab. Crafted with Next.js and
+        Tailwind CSS.
       </footer>
     </main>
   );

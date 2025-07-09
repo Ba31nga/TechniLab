@@ -8,9 +8,14 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <TopbarWrapper />
-      <main className="p-4">{children}</main>
+    <div className="min-h-screen bg-black text-white flex flex-col overflow-hidden">
+      {/* topbar container */}
+      <div className="w-full">
+        <TopbarWrapper />
+      </div>
+
+      {/* content area fills the rest of the screen */}
+      <main className="flex-1 w-full">{children}</main>
     </div>
   );
 }
