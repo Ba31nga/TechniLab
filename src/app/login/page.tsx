@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 // File: app/login/page.tsx
+
 "use client";
 
 import { useState } from "react";
@@ -9,26 +11,36 @@ export default function LoginPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Handle login logic
+    // handle login logic here
     console.log({ email, password });
   };
 
   return (
     <div
       dir="rtl"
-      className="relative min-h-screen bg-black text-white flex items-center justify-center px-4"
+      className="relative min-h-screen flex items-center justify-center px-4 text-white overflow-hidden"
     >
-      {/* Top-Mid logo */}
-      <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
+      {/* background image */}
+      <div
+        className="absolute inset-0 z-[-2] bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/background.png')" }}
+      />
+
+      {/* dark overlay */}
+      <div className="absolute inset-0 z-[-1] bg-black/97" />
+
+      {/* top-left logo */}
+      <div className="absolute top-6 left-6 z-10">
         <img
           src="/images/logo.png"
           alt="TechniLab Logo"
           className="h-12 w-auto"
+          draggable={false}
         />
       </div>
 
-      {/* Login card */}
-      <div className="w-full max-w-md px-6 py-10 border border-neutral-800 rounded-2xl bg-gradient-to-b from-neutral-900 to-black shadow-2xl">
+      {/* login card */}
+      <div className="w-full max-w-md px-6 py-10 border border-neutral-800 rounded-2xl bg-gradient-to-b from-neutral-900 to-black shadow-2xl z-10">
         <h1 className="text-3xl font-semibold text-center mb-2 text-white">
           TechniLab
         </h1>
