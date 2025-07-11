@@ -5,6 +5,7 @@ import { RefObject } from "react";
 import Image from "next/image";
 import { Bell, Search } from "lucide-react";
 
+// main navigation items
 const navItems = [
   "סקירה",
   "שילובים",
@@ -25,20 +26,23 @@ export default function Topbar({
   notifRef,
 }: {
   onSearch: () => void;
-  anchorRef: RefObject<HTMLDivElement | null>; // ✅ updated
+  anchorRef: RefObject<HTMLDivElement | null>;
   toggleNotifications: () => void;
-  notifRef: RefObject<HTMLButtonElement | null>; // ✅ updated
+  notifRef: RefObject<HTMLButtonElement | null>;
 }) {
   return (
     <div
       dir="rtl"
-      className="w-full bg-[#0a0a0a] text-white text-sm z-50 relative border-b border-neutral-800"
+      className="w-full bg-gradient-to-b from-neutral-900 to-neutral-950 text-white text-sm z-50 relative border-b border-neutral-800 shadow-sm"
     >
+      {/* top row */}
       <header className="flex items-center justify-between h-12 px-4">
+        {/* logo */}
         <div className="flex items-center gap-2">
           <Image src="/images/logo.png" alt="Logo" width={35} height={35} />
         </div>
 
+        {/* search button */}
         <div
           ref={anchorRef}
           className="relative w-full max-w-xs mx-4 hidden md:block"
@@ -60,6 +64,7 @@ export default function Topbar({
           </button>
         </div>
 
+        {/* notifications and profile circle */}
         <div className="flex items-center gap-2">
           <button
             ref={notifRef}
@@ -74,6 +79,7 @@ export default function Topbar({
         </div>
       </header>
 
+      {/* navigation tabs */}
       <nav className="flex items-center px-4 space-x-3 rtl:space-x-reverse h-9 text-neutral-400 text-sm border-t border-neutral-800">
         {navItems.map((item) => (
           <button

@@ -1,6 +1,6 @@
 // File: src/app/(dashboard)/layout.tsx
 
-import TopbarWrapper from "@/components/layout/topbar-wrapper";
+import TopbarWrapper from "@/(dashboard)/components/topbar/topbar-wrapper";
 
 export default function DashboardLayout({
   children,
