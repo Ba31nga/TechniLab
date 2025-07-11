@@ -1,22 +1,23 @@
-// src/app/components/topbar.tsx
 "use client";
 
 import { RefObject } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Bell, Search } from "lucide-react";
 
-// main navigation items
+// list of nav items with their labels and paths
 const navItems = [
-  "סקירה",
-  "שילובים",
-  "בקשות",
-  "פעילות",
-  "דומיינים",
-  "אחסון",
-  "דגלים",
-  "AI",
-  "תמיכה",
-  "הגדרות",
+  { label: "סקירה", path: "/" },
+  { label: "שילובים", path: "/admin" },
+  { label: "בקשות", path: "/requests" },
+  { label: "פעילות", path: "/activity" },
+  { label: "דומיינים", path: "/domains" },
+  { label: "אחסון", path: "/storage" },
+  { label: "דגלים", path: "/flags" },
+  { label: "AI", path: "/ai" },
+  { label: "תמיכה", path: "/support" },
+  { label: "הגדרות", path: "/settings" },
 ];
 
 export default function Topbar({
@@ -30,22 +31,24 @@ export default function Topbar({
   toggleNotifications: () => void;
   notifRef: RefObject<HTMLButtonElement | null>;
 }) {
+  const pathname = usePathname();
+
   return (
     <div
       dir="rtl"
-      className="w-full bg-gradient-to-b from-neutral-900 to-neutral-950 text-white text-sm z-50 relative border-b border-neutral-800 shadow-sm"
+      className="w-full bg-gradient-to-b from-neutral-900 to-neutral-950 text-white text-sm z-50 relative shadow-sm border-b border-neutral-800"
     >
-      {/* top row */}
-      <header className="flex items-center justify-between h-12 px-4">
+      {/* top section */}
+      <header className="flex items-center justify-between h-14 px-6">
         {/* logo */}
-        <div className="flex items-center gap-2">
-          <Image src="/images/logo.png" alt="Logo" width={35} height={35} />
-        </div>
+        <Link href="/" className="flex items-center gap-2">
+          <Image src="/images/logo.png" alt="Logo" width={34} height={34} />
+        </Link>
 
-        {/* search button */}
+        {/* search bar button */}
         <div
           ref={anchorRef}
-          className="relative w-full max-w-xs mx-4 hidden md:block"
+          className="relative w-full max-w-sm mx-6 hidden md:block"
         >
           <button
             type="button"
@@ -64,8 +67,8 @@ export default function Topbar({
           </button>
         </div>
 
-        {/* notifications and profile circle */}
-        <div className="flex items-center gap-2">
+        {/* notifications + avatar */}
+        <div className="flex items-center gap-3">
           <button
             ref={notifRef}
             type="button"
@@ -79,16 +82,29 @@ export default function Topbar({
         </div>
       </header>
 
-      {/* navigation tabs */}
-      <nav className="flex items-center px-4 space-x-3 rtl:space-x-reverse h-9 text-neutral-400 text-sm border-t border-neutral-800">
-        {navItems.map((item) => (
-          <button
-            key={item}
-            className="px-2 py-1 hover:text-white transition whitespace-nowrap"
-          >
-            {item}
-          </button>
-        ))}
+      {/* nav section */}
+      <nav className="flex items-center px-6 h-10 text-sm space-x-3 rtl:space-x-reverse relative">
+        {navItems.map(({ label, path }) => {
+          const isActive = pathname === path;
+
+          return (
+            <Link href={path} key={label}>
+              <span
+                className={`relative px-3 py-1.5 rounded-md font-medium transition-colors duration-200
+                  ${
+                    isActive
+                      ? "text-white"
+                      : "text-neutral-400 hover:text-white hover:bg-white/5"
+                  }`}
+              >
+                {label}
+                {isActive && (
+                  <span className="absolute inset-x-1 -bottom-0.5 h-[2px] bg-white rounded-full" />
+                )}
+              </span>
+            </Link>
+          );
+        })}
       </nav>
     </div>
   );
